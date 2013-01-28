@@ -163,6 +163,9 @@ urlparse.urlnormalize = function(url)
     // for [file|http|https].  Not sure about other schemes
     parts.path = urlparse.normalizepath(parts.path);
 
+    // Replace spaces, not sure if this is the perfect place for this, fixed my problem though.
+    parts.path = parts.path.replace(/\s+/g, '%20');
+
     return urlparse.urlunsplit(parts);
 };
 
